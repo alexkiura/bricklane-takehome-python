@@ -1,4 +1,5 @@
 import unittest
+import random
 from ..fixture import get_path
 
 
@@ -7,7 +8,8 @@ from bricklane_platform.models.payment import Payment
 
 
 def create_stub_payment(mock_is_successful):
-    payment = Payment()
+    payment_sources = ["card", "bank"]
+    payment = Payment(source=random.choice(payment_sources))
     payment.is_successful = lambda: mock_is_successful
     return payment
 

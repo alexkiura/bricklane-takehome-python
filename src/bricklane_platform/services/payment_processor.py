@@ -10,7 +10,8 @@ class PaymentProcessor(object):
         with open(csv_path) as f:
             reader = csv.DictReader(f)
             for row in reader:
-                payments.append(Payment(row))
+                # import ipdb; ipdb.set_trace()
+                payments.append(Payment(data=row, source=source))
 
         return payments
 

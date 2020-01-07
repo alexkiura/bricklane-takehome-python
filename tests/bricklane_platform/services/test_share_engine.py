@@ -1,4 +1,5 @@
 import unittest
+import random
 from decimal import Decimal
 
 from bricklane_platform.services.share_engine import ShareEngine
@@ -6,7 +7,9 @@ from bricklane_platform.models.payment import Payment
 
 
 def create_payment(customer_id, amount):
-    payment = Payment()
+    payment_sources = ["card", "bank"]
+
+    payment = Payment(source=random.choice(payment_sources))
     payment.customer_id = customer_id
     payment.amount = amount
     return payment
